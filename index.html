@@ -198,7 +198,15 @@
     position: relative; 
     z-index: 1; 
   }
-  .page.active { display: block; }
+  .page.active { 
+    display: block; 
+    animation: fadePageIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadePageIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
   /* ── GLINT TEXT EFFECT ── */
   .glint-text {
@@ -221,7 +229,67 @@
     100% { background-position: 0% center; }
   }
 
-  /* ── PAGE 1: HOME ── */
+  /* ── ПІДКАЗКА ПРОСТОРУ СТИЛІ ── */
+  .oracle-wrapper {
+    text-align: center;
+    margin-top: 50px;
+    padding: 40px 20px;
+  }
+  .oracle-instruction {
+    font-family: 'Raleway', sans-serif;
+    color: var(--gold-light);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 50px;
+  }
+  .oracle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(26,51,32,0.4);
+    border: 2px solid var(--gold);
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(201,168,76,0.2);
+    transition: all 0.4s ease;
+    margin-bottom: 50px;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .oracle-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(201,168,76,0.5);
+    background: rgba(201,168,76,0.1);
+  }
+  .oracle-btn.spinning {
+    pointer-events: none;
+    animation: oracle-spin 2s ease-in-out infinite;
+    border-color: var(--gold-bright);
+    box-shadow: 0 0 60px rgba(255,215,0,0.6);
+  }
+  @keyframes oracle-spin {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(180deg); }
+    100% { transform: scale(1) rotate(360deg); }
+  }
+  .oracle-result-box {
+    background: linear-gradient(to bottom, rgba(26,51,32,0.6), rgba(13,31,15,0.9));
+    border: 1px solid var(--gold);
+    padding: 40px 30px;
+    border-radius: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--gold-bright);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: none; /* скрыто по умолчанию */
+  }
+
+  /* ── HOME & OTHER STYLES ── */
   #home-hero {
     position: relative;
     min-height: 100vh;
@@ -401,6 +469,8 @@
     .main-serv-btn:hover .main-serv-arrow { transform: translateY(5px); }
     .main-serv-arrow { transform: rotate(90deg); }
     .audio-btn { bottom: 20px; right: 20px; width: 45px; height: 45px; }
+    
+    .oracle-result-box { font-size: 1.2rem; padding: 30px 20px; }
   }
 </style>
 </head>
@@ -448,6 +518,9 @@
       <a onclick="showPage('mental-to-physical', true)" id="nav-mental-to-physical"><span class="eso-symbol">⚚</span> Як хвороби з ментального стають фізичні</a>
       </div>
     </li>
+
+    <!-- ОНОВЛЕНА КНОПКА В МЕНЮ -->
+    <li><a onclick="showPage('oracle', true)" id="nav-oracle" style="color: var(--gold-bright);">Підказка Простору <span class="eso-symbol" style="font-size: 0.9em;">✦</span></a></li>
   </ul>
 </nav>
 
@@ -930,7 +1003,7 @@
     <div class="align-highlight-center reveal" style="margin-top: 60px;">
       ЦЕ СЕСІЯ ДЛЯ ТИХ, ХТО ГОТОВИЙ НЕ ПРОСТО<br>НАДИХНУТИСЯ, А ЗМІНИТИ ВНУТРІШНЮ ТОЧКУ<br>ОПОРИ, З ЯКОЇ ПОЧИНАЄТЬСЯ СПРАВЖНЯ<br>ПРОЯВЛЕНІСТЬ.
     </div>
-
+    
     <div class="align-text-block gold reveal" style="margin-top: 50px;">
       <p>Це одна сесія для одного запиту - не курс сесій, не декілька, а одна.<br>Ми за один сеанс змінюємо один запит. Многомірна КМ працює безпосередньо з енергетичним «коренем», тому нам не потрібно обговорювати проблему місяцями.</p>
     </div>
@@ -946,8 +1019,109 @@
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
+<!-- ── СТОРІНКА: ПІДКАЗКА ПРОСТОРУ ── -->
+<div id="oracle" class="page">
+  <div class="align-container" style="text-align: center;">
+    <div class="align-hero-box reveal" style="padding-bottom: 30px;">
+      <h1 class="align-hero-title glint-text" style="margin-bottom: 0;">Підказка Простору</h1>
+    </div>
+
+    <div class="oracle-wrapper reveal">
+      <p class="oracle-instruction">
+        Зроби глибокий вдих. Сфокусуйся на своєму стані чи питанні.<br>Коли будеш готова, торкнися символу.
+      </p>
+
+      <div class="oracle-btn" onclick="revealOracleMessage()" title="Отримати підказку">
+        <span class="eso-symbol" style="font-size: 3.5rem; margin:0;">❂</span>
+      </div>
+
+      <div id="oracle-result" class="oracle-result-box">
+        <!-- Сюди буде падати текст з JavaScript -->
+      </div>
+    </div>
+  </div>
+  <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
+</div>
+
 <!-- ── СКРИПТ: АДАПТОВАНО ДЛЯ БУДЬ-ЯКИХ ТЕЛЕФОНІВ (ES5) ── -->
 <script>
+  // ── ЛОГІКА ПІДКАЗОК ПРОСТОРУ (50 ШТУК) ──
+  var oracleMessages = [
+    "Те, що ти шукаєш, вже всередині тебе. Зупинись і просто послухай.",
+    "Відпусти контроль. Дозволь енергії текти вільно, і рішення прийде саме.",
+    "Твоє тіло знає відповідь. Зверни увагу на те, де саме зараз є напруга.",
+    "Зараз час для паузи. Не роби різких рухів, дай простору розгорнутися.",
+    "Ти на правильному шляху. Навіть якщо зараз темно, попереду є світло.",
+    "Те, що зараз здається перешкодою, насправді є твоїм найбільшим ресурсом.",
+    "Дозволь собі проявитися. Світ чекає на твоє справжнє звучання.",
+    "Звільни місце для нового. Відпусти те, що більше не служить твоїй еволюції.",
+    "Довірся процесу. Всесвіт ніколи не помиляється в таймінгу.",
+    "Твоя сила в твоєму спокої. Повернись до свого центру.",
+    "Перестань боротися з реальністю. Прийми її, і вона почне змінюватися для тебе.",
+    "Дихай. Твоє дихання — це найшвидший міст між розумом і тілом.",
+    "Те, що тебе найбільше тригерить, ховає твою найбільшу точку росту.",
+    "Найкраща дія зараз — це спостереження без оцінки.",
+    "Відповідь прийде не через напругу розуму, а через розслаблення тіла.",
+    "Твоя енергія йде туди, куди спрямована увага. Куди ти дивишся прямо зараз?",
+    "Дозволь собі бути недосконалою. У твоїй вразливості криється магнетизм.",
+    "Кожен кінець — це просто початок чогось нового. Не тримайся за віджиле.",
+    "Твоя інтуїція говорить тихо. Зменш гучність думок, щоб нарешті її почути.",
+    "Сумніви — це нормально. Але не дозволяй їм ставати за кермо твого життя.",
+    "Ти маєш абсолютне право на відпочинок. Твоя цінність не вимірюється продуктивністю.",
+    "Подивись на ситуацію з висоти пташиного польоту. Що насправді має значення?",
+    "Замість того, щоб питати 'за що мені це?', запитай 'для чого це мені?'.",
+    "Твій внутрішній стан формує твою реальність. Подбай про стан, і світ підтягнеться.",
+    "Іноді наймудріша відповідь, яку ти можеш дати світу — це тиша.",
+    "Ти вже маєш достатньо знань. Час перестати накопичувати і почати діяти.",
+    "Страх — це просто нереалізована енергія. Дай їй напрямок.",
+    "Зверни увагу на дрібниці сьогодні. Саме в них простір ховає підказки.",
+    "Не порівнюй свій шлях з іншими. Твоя швидкість ідеально розрахована для тебе.",
+    "Дозволь собі проживати всі емоції. Блокуючи біль, ти блокуєш і радість.",
+    "Тіло не вміє брехати. Якщо воно стискається — це не твоє. Якщо розширюється — йди туди.",
+    "Пробач собі минулі помилки. Тоді ти робила максимум з того, що вміла і розуміла.",
+    "Відповідь ховається саме в тому місці, куди ти найбільше боїшся подивитися.",
+    "Справжня, нищівна сила часто проявляється саме в абсолютній м'якості.",
+    "Не намагайся зрозуміти весь план одразу. Просто зроби один наступний крок.",
+    "Твоє оточення зараз — це пряме відображення твоїх внутрішніх дозволів.",
+    "Що б ти зробила сьогодні, якби точно знала, що невдача неможлива? Зроби це.",
+    "Віддай простору те, що не можеш змінити. І сфокусуйся на тому, на що впливаєш.",
+    "Радість — це не кінцева мета. Це єдиний нормальний спосіб подорожувати.",
+    "Ти набагато більша за свої емоції. Спостерігай за ними, як за хмарами на небі.",
+    "Те, від чого ти тікаєш, бігтиме за тобою, поки ти не зупинишся і не подивишся йому в очі.",
+    "Не приймай рішень зі стану втоми. Завтра все виглядатиме зовсім інакше.",
+    "Дозволь світу подбати про тебе. Ти не мусиш тягнути все лише на своїх плечах.",
+    "Твій голос має значення. Навіть якщо він тремтить, говори свою правду.",
+    "Особисті кордони — це просто любов до себе. Встанови їх там, де йде злив енергії.",
+    "Не бійся розчарувати інших. Бійся хоч на міліметр зрадити себе.",
+    "Кожна твоя так звана 'помилка' — це просто дорого оплачений урок досвіду.",
+    "Замість того, щоб шукати опору зовні, переведи фокус і відчуй її у своїх стопах.",
+    "Ти вже є тією версією себе, про яку мрієш. Залишилося лише зняти зайві шари.",
+    "Простір тебе чує. Твоє бажання вже почало формуватися у матерію."
+  ];
+
+  function revealOracleMessage() {
+    var btn = document.querySelector('.oracle-btn');
+    var resultBox = document.getElementById('oracle-result');
+
+    // Якщо вже крутиться, блокуємо повторне натискання
+    if (btn.classList.contains('spinning')) return;
+
+    // Ховаємо старий результат
+    resultBox.style.display = 'none';
+
+    // Запускаємо анімацію "думання/пошуку відповіді"
+    btn.classList.add('spinning');
+
+    // Чекаємо 2 секунди і видаємо результат
+    setTimeout(function() {
+      btn.classList.remove('spinning');
+      var randomIndex = Math.floor(Math.random() * oracleMessages.length);
+      resultBox.innerHTML = '<span class="eso-symbol">✦</span><br><br>' + oracleMessages[randomIndex] + '<br><br><span class="eso-symbol">✦</span>';
+      resultBox.style.display = 'block';
+      resultBox.style.animation = 'fadePageIn 0.8s ease-out forwards';
+    }, 2000);
+  }
+
   // ── ЛОГІКА ЗВУКУ ──
   var isPlaying = false;
   
@@ -1020,7 +1194,7 @@
     }
   });
 
-  function showPage(pageId, addToHistory) {
+  function showPage(pageId, addToHistory, isPopState) {
     if (!pageId) pageId = 'home';
 
     var targetPage = document.getElementById(pageId);
@@ -1068,7 +1242,9 @@
       history.pushState({ page: pageId }, '', '#' + pageId);
     }
 
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    if (!isPopState) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
 
     if (pageId === 'home') {
       try {
@@ -1083,9 +1259,9 @@
 
   window.addEventListener('popstate', function(event) {
     if (event.state && event.state.page) {
-      showPage(event.state.page, false);
+      showPage(event.state.page, false, true);
     } else {
-      showPage('home', false);
+      showPage('home', false, true);
     }
   });
 
