@@ -148,6 +148,12 @@
     transition: color 0.3s;
     cursor: pointer;
     font-weight: 400;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    appearance: none;
+    -webkit-appearance: none;
   }
   .nav-links a:hover, .nav-links a.active, .dropbtn:hover, .dropbtn.active { color: var(--gold-light); }
 
@@ -168,7 +174,7 @@
     padding: 10px 0;
     backdrop-filter: blur(10px);
   }
-  .dropdown:hover .dropdown-content { display: block; animation: fadeIn 0.3s ease; }
+  .dropdown:hover .dropdown-content, .dropdown.open .dropdown-content, .dropdown-content.show { display: block; animation: fadeIn 0.3s ease; }
   .dropdown-content a {
     color: var(--text-muted);
     padding: 15px 20px;
@@ -422,24 +428,24 @@
 </div>
 
 <nav>
-  <a class="nav-logo" onclick="showPage('home')">DNK · SUN · ART</a>
+  <a class="nav-logo" onclick="showPage('home', false)">DNK · SUN · ART</a>
   <ul class="nav-links">
-    <li><a onclick="showPage('home')" id="nav-home" class="active">Головна</a></li>
+    <li><a onclick="showPage('home', false)" id="nav-home" class="active">Головна</a></li>
     
     <li class="dropdown">
-      <span class="dropbtn" id="nav-dropdown-btn">Енергопрактики ▾</span>
+      <button type="button" class="dropbtn" id="nav-dropdown-btn" onclick="toggleDropdown(this)">Енергопрактики ▾</button>
       <div class="dropdown-content">
-        <a onclick="showPage('alignment')" id="nav-alignment"><span class="eso-symbol">⟁</span> Духовне Енергетичне Вирівнювання</a>
-        <a onclick="showPage('body-restoration')" id="nav-body-restoration"><span class="eso-symbol">☥</span> Сесія Тілесного Відновлення</a>
-        <a onclick="showPage('meditation')" id="nav-meditation"><span class="eso-symbol">❂</span> Многомірна Керована Медитація</a>
+        <a onclick="showPage('alignment', true)" id="nav-alignment"><span class="eso-symbol">⟁</span> Духовне Енергетичне Вирівнювання</a>
+        <a onclick="showPage('body-restoration', true)" id="nav-body-restoration"><span class="eso-symbol">☥</span> Сесія Тілесного Відновлення</a>
+        <a onclick="showPage('meditation', true)" id="nav-meditation"><span class="eso-symbol">❂</span> Многомірна Керована Медитація</a>
       </div>
     </li>
 
     <li class="dropdown">
-      <span class="dropbtn" id="nav-dropdown-energy-btn">Енергія, тіло та хвороби ▾</span>
+      <button type="button" class="dropbtn" id="nav-dropdown-energy-btn" onclick="toggleDropdown(this)">Енергія, тіло та хвороби ▾</button>
       <div class="dropdown-content">
-        <a onclick="showPage('energy-body')" id="nav-energy-body"><span class="eso-symbol">✺</span> Енергія, тіло та хвороби</a>
-      <a onclick="showPage('mental-to-physical')" id="nav-mental-to-physical"><span class="eso-symbol">⚚</span> Як хвороби з ментального стають фізичні</a>
+        <a onclick="showPage('energy-body', true)" id="nav-energy-body"><span class="eso-symbol">✺</span> Енергія, тіло та хвороби</a>
+      <a onclick="showPage('mental-to-physical', true)" id="nav-mental-to-physical"><span class="eso-symbol">⚚</span> Як хвороби з ментального стають фізичні</a>
       </div>
     </li>
   </ul>
@@ -503,15 +509,15 @@
     <span class="section-label reveal" style="margin-top: 80px;">— Основні послуги</span>
     <h2 class="section-title reveal glint-text" style="margin-bottom: 40px;">Енергопрактики</h2>
     <div class="main-services-list reveal">
-      <div class="main-serv-btn" onclick="showPage('alignment')">
+      <div class="main-serv-btn" onclick="showPage('alignment', true)">
         <span class="main-serv-title"><span class="eso-symbol">⟁</span> Духовне Енергетичне Вирівнювання</span>
         <span class="main-serv-arrow">→</span>
       </div>
-      <div class="main-serv-btn" onclick="showPage('body-restoration')">
+      <div class="main-serv-btn" onclick="showPage('body-restoration', true)">
         <span class="main-serv-title"><span class="eso-symbol">☥</span> Сесія Тілесного Відновлення</span>
         <span class="main-serv-arrow">→</span>
       </div>
-      <div class="main-serv-btn" onclick="showPage('meditation')">
+      <div class="main-serv-btn" onclick="showPage('meditation', true)">
         <span class="main-serv-title"><span class="eso-symbol">❂</span> Многомірна Керована Медитація</span>
         <span class="main-serv-arrow">→</span>
       </div>
@@ -971,40 +977,100 @@
   }
 
   // ── ЛОГІКА НАВІГАЦІЇ ──
-  function showPage(pageId) {
+  window.currentPage = 'home';
+
+  function closeAllDropdowns() {
+    var dropdowns = document.querySelectorAll('.dropdown-content');
+    for (var i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove('show');
+      dropdowns[i].style.display = 'none';
+    }
+
+    var parents = document.querySelectorAll('.dropdown');
+    for (var j = 0; j < parents.length; j++) {
+      parents[j].classList.remove('open');
+      parents[j].classList.remove('active');
+    }
+  }
+
+  function toggleDropdown(btn) {
+    if (!btn) return;
+
+    var parent = btn.parentElement;
+    if (!parent) return;
+
+    var menu = parent.querySelector('.dropdown-content');
+    if (!menu) return;
+
+    var isOpen = parent.classList.contains('open');
+
+    closeAllDropdowns();
+
+    if (!isOpen) {
+      parent.classList.add('open');
+      menu.classList.add('show');
+      menu.style.display = 'block';
+    }
+  }
+
+  document.addEventListener('click', function(e) {
+    var insideDropdown = e.target.closest('.dropdown');
+    if (!insideDropdown) {
+      closeAllDropdowns();
+    }
+  });
+
+  function showPage(pageId, addToHistory) {
+    if (!pageId) pageId = 'home';
+
+    var targetPage = document.getElementById(pageId);
+    if (!targetPage) pageId = 'home';
+
+    if (typeof addToHistory === 'undefined') {
+      addToHistory = pageId !== 'home';
+    }
+
+    window.currentPage = pageId;
+
     var pages = document.querySelectorAll('.page');
-    for(var i = 0; i < pages.length; i++) {
+    for (var i = 0; i < pages.length; i++) {
       pages[i].classList.remove('active');
     }
-    
+
     var links = document.querySelectorAll('.nav-links a, .dropbtn');
-    for(var j = 0; j < links.length; j++) {
+    for (var j = 0; j < links.length; j++) {
       links[j].classList.remove('active');
     }
 
-    var targetPage = document.getElementById(pageId);
-    if (targetPage) {
-      targetPage.classList.add('active');
+    var activePage = document.getElementById(pageId);
+    if (activePage) {
+      activePage.classList.add('active');
     }
-    
+
     var activeNav = document.getElementById('nav-' + pageId);
     if (activeNav) {
       activeNav.classList.add('active');
     }
-    
-    if(pageId === 'alignment' || pageId === 'body-restoration' || pageId === 'meditation') {
-        var dropBtn = document.getElementById('nav-dropdown-btn');
-        if(dropBtn) dropBtn.classList.add('active');
+
+    if (pageId === 'alignment' || pageId === 'body-restoration' || pageId === 'meditation') {
+      var dropBtn = document.getElementById('nav-dropdown-btn');
+      if (dropBtn) dropBtn.classList.add('active');
     }
 
-    if(pageId === 'energy-body' || pageId === 'mental-to-physical') {
-        var energyBtn = document.getElementById('nav-dropdown-energy-btn');
-        if(energyBtn) energyBtn.classList.add('active');
+    if (pageId === 'energy-body' || pageId === 'mental-to-physical') {
+      var energyBtn = document.getElementById('nav-dropdown-energy-btn');
+      if (energyBtn) energyBtn.classList.add('active');
     }
 
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-    
-    if(pageId === 'home') {
+    closeAllDropdowns();
+
+    if (addToHistory) {
+      history.pushState({ page: pageId }, '', '#' + pageId);
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+
+    if (pageId === 'home') {
       try {
         window.dispatchEvent(new Event('resize'));
       } catch(e) {
@@ -1014,6 +1080,28 @@
       }
     }
   }
+
+  window.addEventListener('popstate', function(event) {
+    if (event.state && event.state.page) {
+      showPage(event.state.page, false);
+    } else {
+      showPage('home', false);
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var startPage = window.location.hash ? window.location.hash.replace('#', '') : 'home';
+    if (!document.getElementById(startPage)) startPage = 'home';
+
+    showPage(startPage, false);
+
+    if (startPage === 'home') {
+      history.replaceState({ page: 'home' }, '', '#home');
+    } else {
+      history.replaceState({ page: 'home' }, '', '#home');
+      history.pushState({ page: startPage }, '', '#' + startPage);
+    }
+  });
 
   // ── SCROLL REVEAL (Плавне проявлення) ──
   document.addEventListener("DOMContentLoaded", function() {
