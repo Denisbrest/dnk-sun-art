@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <!-- Google tag (gtag.js) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DNK Sun Art · Надія</title>
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXCK4MWG79"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -10,9 +14,7 @@
 
   gtag('config', 'G-YXCK4MWG79');
 </script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DNK Sun Art · Надія</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -362,11 +364,43 @@
 
   /* HOME: Additional Services Grid */
   .add-services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-  .add-serv-card { background: linear-gradient(160deg, rgba(26,51,32,0.4), rgba(13,31,15,0.8)); border: 1px solid rgba(201,168,76,0.15); padding: 35px 25px; transition: all 0.4s; }
+  .add-serv-card { background: linear-gradient(160deg, rgba(26,51,32,0.4), rgba(13,31,15,0.8)); border: 1px solid rgba(201,168,76,0.15); padding: 35px 25px; transition: all 0.4s; display: flex; flex-direction: column; }
   .add-serv-card:hover { transform: translateY(-5px); border-color: rgba(201,168,76,0.4); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
   .add-serv-title { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--gold-light); margin-bottom: 15px; display:flex; align-items:center; gap:8px;}
   .add-serv-price { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--gold-bright); margin-bottom: 20px; font-weight: 600; }
-  .add-serv-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px; }
+  .add-serv-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 15px; flex-grow: 1; }
+
+  /* ── ІКОНКА-КНОПКА ЗАМІСТЬ ТЕКСТУ "ДЕТАЛЬНІШЕ" ── */
+  .card-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light);
+    margin: 15px auto 0; /* центруємо по горизонталі, відступ зверху */
+    transition: all 0.4s ease;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(201,168,76,0.05);
+    background: rgba(13,31,15,0.4);
+  }
+  .card-more-btn:hover {
+    background: rgba(201,168,76,0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(201,168,76,0.4);
+    color: var(--gold-bright);
+    border-color: var(--gold-bright);
+  }
+  .card-more-btn svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+  .card-more-btn:hover svg {
+    transform: translateX(3px); /* Стрілочка трохи зсувається вправо при наведенні */
+  }
 
   /* ── GLOBAL ALIGN STYLES (for specific service pages) ── */
   .align-container { max-width: 800px; margin: 0 auto; padding: 40px 20px 80px; }
@@ -406,6 +440,7 @@
     letter-spacing: 0.05em; padding: 20px 30px; text-decoration: none; margin: 40px auto; width: 100%;
     justify-content: center; transition: all 0.2s; text-align: center; line-height: 1.5;
     animation: button-breathe 3.5s infinite ease-in-out;
+    cursor: pointer;
   }
   .align-cta:hover { background: rgba(201,168,76,0.1); transform: translateY(-3px); }
   .align-cta:active {
@@ -528,7 +563,6 @@
       </div>
     </li>
 
-    <!-- ОНОВЛЕНА КНОПКА В МЕНЮ -->
     <li><a onclick="showPage('oracle', true)" id="nav-oracle" style="color: var(--gold-bright);">Підказка Простору <span class="eso-symbol" style="font-size: 0.9em;">✦</span></a></li>
   </ul>
 </nav>
@@ -608,15 +642,22 @@
     <span class="section-label reveal" style="margin-top: 100px;">— Додаткові Формати</span>
     <h2 class="section-title reveal glint-text">Інші послуги</h2>
     <div class="add-services-grid reveal">
+      
       <div class="add-serv-card">
-        <div class="add-serv-title"><span class="eso-symbol">❂</span> Чакральне Очищення</div>
+        <div class="add-serv-title"><span class="eso-symbol">❂</span> Чакральне/Енергетичне очищення</div>
         <div class="add-serv-price">2200 грн</div>
         <div class="add-serv-desc">
-          <p><strong>Енергетичне очищення:</strong> Це робота з усією енергетичною системою: з полями, меридіанами, торсіонними й магнітними потоками, каналами, через які циркулює енергія. Ми очищуємо й відновлюємо природний рух енергії, знімаємо спотворення.</p>
-          <p style="margin-top: 15px;"><strong>Чакральне очищення:</strong> Робота з енергетичними центрами тіла, де накопичується й розподіляється прана — життєва сила. Ми працюємо саме з тим, що потрібно тобі зараз. Іноді з однією чакрою, іноді — з усіма.</p>
-          <p style="margin-top: 15px; font-style:italic; color:var(--gold-light);">Я працюю з чакрами за унікальною системою! З такою ви, найімовірніше, ще не стикалися.</p>
+          <p><strong>Енергетичне очищення:</strong> Це робота з усією енергетичною системою: з полями, меридіанами, торсіонними й магнітними потоками, каналами, через які циркулює енергія.</p>
+          <p style="margin-top: 15px;"><strong>Чакральне очищення:</strong> Робота з енергетичними центрами тіла, де накопичується й розподіляється прана — життєва сила.</p>
+          <p style="margin-top: 15px; font-style:italic; color:var(--gold-light);">Ми працюємо саме з тим, що потрібно тобі зараз. Іноді з однією чакрою, іноді — з усіма.</p>
         </div>
+        <a onclick="showPage('chakra-cleansing', true)" class="card-more-btn" title="Відкрити деталі">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
       </div>
+      
       <div class="add-serv-card">
         <div class="add-serv-title"><span class="eso-symbol">⧖</span> Часовий квадриптих</div>
         <div class="add-serv-price">2200 грн</div>
@@ -629,7 +670,14 @@
           <span class="eso-symbol" style="font-size:0.8em;">✧</span> шукає нові відчуття простору та розширення</p>
           <p style="margin-top: 20px; font-size: 0.85rem; color:var(--gold-light);"><span class="eso-symbol" style="font-size:0.9em;">✦</span> У вартість входить підтримка протягом всієї практики (більше 2-ух місяців).</p>
         </div>
+        <a onclick="showPage('quadriptych', true)" class="card-more-btn" title="Відкрити деталі">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
       </div>
+
+      <!-- ОНОВЛЕНА КАРТКА "БЕСІДА З ТІЛОМ" -->
       <div class="add-serv-card">
         <div class="add-serv-title"><span class="eso-symbol">✧</span> Канал «Бесіда_з_тілом»</div>
         <div class="add-serv-price" style="line-height: 1.6;">250 грн / 1 міс<br>600 грн / 3 міс<br>2000 грн / рік</div>
@@ -639,7 +687,14 @@
           <em style="color:var(--gold-light); display:block; margin-top:5px;">проживання → запитання → проживання</em></p>
           <p style="margin-top: 15px;">Так народжується діалог. А в діалозі завжди з'являється істина — твоя.</p>
         </div>
+        <!-- КНОПКА-ІКОНКА -->
+        <a onclick="showPage('body-conversation', true)" class="card-more-btn" title="Відкрити деталі">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
       </div>
+      
       <div class="add-serv-card">
         <div class="add-serv-title"><span class="eso-symbol">✺</span> Індивідуальна медитація</div>
         <div class="add-serv-price">1300 грн</div>
@@ -648,6 +703,11 @@
           <p style="margin-top: 15px;">Тому медитацію потрібно прослухати декілька разів, для того щоб закрити нашарування. З кожним прослуховуванням закривається пласт.</p>
           <p style="margin-top: 15px;">І для закріплення певного стану, з яким ми знайомимось, щоб він плавно ввійшов у наше життя і залишився в ньому з легкістю, потрібно прослуховувати певний час.</p>
         </div>
+        <a onclick="showPage('individual-meditation', true)" class="card-more-btn" title="Відкрити деталі">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
       </div>
     </div>
   </div>
@@ -1028,6 +1088,361 @@
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
+<!-- ── СТОРІНКА: ЧАСОВИЙ КВАДРИПТИХ ── -->
+<div id="quadriptych" class="page">
+  <div class="align-container">
+    <div class="align-hero-box reveal" style="padding-bottom: 30px;">
+      <h1 class="align-hero-title glint-text" style="margin-bottom: 0;">Часовий квадриптих</h1>
+    </div>
+
+    <div class="align-highlight-center reveal" style="font-size: 1.15rem; text-transform: none; letter-spacing: normal;">
+      Це не просто набір медитацій — це глибока практика, яка триватиме понад 2 місяці та трансформує ваші стосунки з часом. <span class="eso-symbol">✧</span>
+    </div>
+
+    <div class="align-text-block gold reveal" style="margin-top: 40px;">
+      <p><strong>“Часовий квадриптих”</strong> — це 4 медитації <span class="eso-symbol">✺</span>, створені як єдина цілісна структура. Кожна з них має своє унікальне завдання, настрій і енергетичну хвилю. <span class="eso-symbol">⟁</span></p>
+      <p>Вони прослуховуються у певній послідовності з рекомендованою тривалістю практики для кожної, щоб поступово перепрошити ваші внутрішні установки, ритми й сприйняття часу. <span class="eso-symbol">⧖</span></p>
+    </div>
+
+    <h2 class="align-heading reveal" style="margin-top: 50px;">Це квадриптих для тих, хто:</h2>
+    <div class="arrow-list reveal" style="margin-bottom: 40px;">
+      <div class="arrow-list-item">
+        <span class="eso-symbol">✧</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">відчуває, що часу постійно не вистачає;</div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">✧</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">хоче вийти з режиму поспіху та напруги;</div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">✧</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">бажає навчитися співпрацювати з часом, а не боротися з ним;</div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">✧</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">шукає нові відчуття простору, розслабленості й внутрішнього розширення;</div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">✧</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">хоче просипатись не всупереч будильнику, а в союзі і довірі до свого тіла. <span class="eso-symbol" style="font-size:0.9em;">❂</span></div>
+      </div>
+    </div>
+
+    <div class="corner-border-box reveal">
+      <p style="color:var(--gold-bright); font-size: 1.15rem; line-height: 1.6; text-align: center; font-style: italic;">
+        Це м’яке, але глибоке занурення, яке повертає вас у момент, де все можливе. <span class="eso-symbol">✦</span><br><br>
+        Бо справжній час — не на годиннику. Він усередині вас.
+      </p>
+    </div>
+
+    <div class="align-text-block gold reveal" style="margin-top: 40px;">
+      <p><span class="eso-symbol">✦</span> Це достатній шлях більше ніж 2 місяці, якщо прослуховувати по тим рекомендаціям які я вказала. Зате ви і отримуєте результат.</p>
+      <p>Можна, як завжди, сказати - це довго. І залишитись з "часом" у тих стосунках, які вас до цього "не влаштовували". І це теж вибір який каже, що "таки влаштовує". І в цьому випадку, ми уже зробили велике діло - признали в собі правду, яка також здвине якийсь пласт. <span class="eso-symbol">△</span></p>
+      <p>Але якщо ви хочете таки змінити свої відносини з часом, то треба трошки попрацювати вушками. <span class="eso-symbol">✧</span> Прослухати один за одним медитації, які в кінці ввійдуть в ваше життя, змінять м'яко його і привнесуть легкість.</p>
+      <p>Ви отримаєте колосальну кількість осяянь і вийдете на новий рівень якості свого життя. <span class="eso-symbol">❂</span> Та і загалом вирішите ситуацію з встиганням і розширенням часових рамок.</p>
+      <p>Дуже складно описати всі переваги цього квадриптиху, у кожного своя магія творення і тому кожен матиме індивідуальні результати. <span class="eso-symbol">✺</span></p>
+    </div>
+
+    <div class="support-note reveal">
+      <span class="eso-symbol" style="font-size: 2rem; display: block; margin-bottom: 15px;">⟡</span>
+      <div style="font-size: 1.3rem; margin-bottom: 10px; font-weight: 600; color: var(--gold-bright); font-family: 'Cinzel', serif;">Обмінна цінність 2200 грн</div>
+      <div style="font-size: 1.05rem;">Входить 4 медитації з рекомендаціями до прослуховування</div>
+    </div>
+
+    <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal">
+      <span class="eso-symbol">⚚</span> ДЛЯ ЗАМОВЛЕННЯ ПИШИ В ДІРЕКТ
+    </a>
+  </div>
+  <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
+</div>
+
+<!-- ── СТОРІНКА: ЧАКРАЛЬНЕ/ЕНЕРГЕТИЧНЕ ОЧИЩЕННЯ ── -->
+<div id="chakra-cleansing" class="page">
+  <div class="align-container">
+    <div class="align-hero-box reveal" style="padding-bottom: 30px;">
+      <h1 class="align-hero-title glint-text" style="margin-bottom: 0;">Чакральне / Енергетичне<br>очищення</h1>
+    </div>
+
+    <h2 class="align-heading reveal" style="margin-top: 50px;"><span class="eso-symbol">✺</span> Чакральне очищення</h2>
+    <div class="align-text-block gold reveal">
+      <p>Це робота з енергетичними центрами тіла.</p>
+      <p>Чакри — це точки перетину енергетичних каналів уздовж хребта, де накопичується й розподіляється прана — життєва сила.</p>
+      <p>Кожна чакра впливає на певну сферу життя: безпеку, емоції, любов, самовираження, бачення, інтуїцію, зв’язок із вищим.</p>
+      <p>Коли вони відкриті — енергія тече вільно, життя розквітає. Коли заблоковані — з’являються хвороби, емоційні застої, втрата натхнення.</p>
+      <p>Ми працюємо саме з тим, що потрібно тобі зараз: іноді з однією чакрою, іноді — з усіма. Це визначаємо на короткій консультації перед сесією <span class="eso-symbol">✧</span></p>
+      <p style="font-style: italic; color:var(--gold-bright); margin-top: 25px;">Твоя система завжди підкаже, де потрібне світло <span class="eso-symbol">✦</span></p>
+    </div>
+
+    <h2 class="align-heading reveal" style="margin-top: 60px;"><span class="eso-symbol">✺</span> Енергетичне очищення</h2>
+    <div class="align-text-block gold reveal">
+      <p>Це робота з усією твоєю енергетичною системою: з полями, меридіанами, торсіонними й магнітними потоками, каналами, через які циркулює енергія.</p>
+      <p>Ми очищаємо й відновлюємо природний рух енергії, знімаємо спотворення, розблоковуємо потоки — щоб тіло, розум і простір діяли злагоджено.</p>
+      <p style="font-style: italic; color:var(--gold-bright); margin-top: 25px;">Це глибоке оновлення всієї твоєї енергетики <span class="eso-symbol">❂</span></p>
+    </div>
+
+    <div class="corner-border-box reveal" style="margin-top: 60px;">
+      <p style="color:var(--gold-bright); font-size: 1.15rem; line-height: 1.6; text-align: center; margin-bottom: 20px;">
+        <span class="eso-symbol">✺</span> Обидва види очищення — про повернення цілісності.
+      </p>
+      <p style="color:var(--gold-light); line-height: 1.6; margin-bottom: 15px;">Просто енергетичне охоплює всю систему людини, а чакральне — роботу з її основними центрами.</p>
+      <p style="color:var(--gold-light); line-height: 1.6; margin-bottom: 15px;">Ми не робимо їх одночасно, бо це глибока робота. Кожне очищення триває до півтори години і торкається різних шарів енергії.</p>
+      <p style="color:var(--gold-light); line-height: 1.6; font-style: italic;">
+        <span class="eso-symbol">✦</span> Розділення допомагає краще інтегрувати зміни в життя. І навіть коли ми працюємо з одним — це впливає на всю систему. Адже всі рівні людини взаємопов’язані <span class="eso-symbol">✧</span>
+      </p>
+    </div>
+
+    <h2 class="align-heading reveal" style="margin-top: 70px;">Що ти отримаєш після очищення:</h2>
+    <div class="arrow-list reveal" style="margin-bottom: 50px;">
+      <div class="arrow-list-item">
+        <span class="eso-symbol">⟁</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Вільний потік енергії <span class="eso-symbol">✧</span></div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">⟁</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Легкість у діях і рішеннях <span class="eso-symbol">✦</span></div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">⟁</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Баланс і стабільність у житті <span class="eso-symbol">△</span></div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">⟁</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Натхнення та силу прояву <span class="eso-symbol">❂</span></div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">⟁</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Чистий простір для фінансів, стосунків і творчості <span class="eso-symbol">✺</span></div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">⟁</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Зтирання фізичних і енергетичних блоків, хвороб <span class="eso-symbol">☥</span></div>
+      </div>
+    </div>
+
+    <div class="align-highlight-center reveal" style="border-top: 1px dashed rgba(201,168,76,0.2); border-bottom: 1px dashed rgba(201,168,76,0.2); padding: 40px 0;">
+      Очищення — це те, що повертає швидкість прояву.<br>
+      Коли простір усередині стає чистим — ти починаєш діяти.<br>
+      Не через силу, а через потік <span class="eso-symbol">✦</span>
+    </div>
+
+    <div class="align-text-block gold reveal" style="margin-top: 50px;">
+      <p>І знаєш, що найцікавіше?<br>
+      Після цієї практики ти навчишся самостійно очищати свої чакри й поля. Без сторонньої допомоги.</p>
+      
+      <p style="margin-top: 25px;"><span class="eso-symbol">✺</span> Після практики все навколо починає відгукуватися: люди, події, можливості.</p>
+      
+      <p style="font-style: italic; color:var(--gold-bright); margin-top: 15px;">Бо світ завжди відповідає на чистоту твоєї енергії <span class="eso-symbol">△</span></p>
+    </div>
+
+    <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal">
+      <span class="eso-symbol">⚚</span> НАПИШИ МЕНІ У ДІРЕКТ, РОЗКАЖИ СВІЙ ЗАПИТ І Я ПІДКАЖУ ВАРІАНТ ДЛЯ ТЕБЕ.
+    </a>
+  </div>
+  <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
+</div>
+
+<!-- ── СТОРІНКА: ІНДИВІДУАЛЬНА АУДІО-МЕДИТАЦІЯ ── -->
+<div id="individual-meditation" class="page">
+  <div class="align-container">
+    <div class="align-hero-box reveal" style="padding-bottom: 30px;">
+      <h1 class="align-hero-title glint-text" style="margin-bottom: 0;">Індивідуальна<br>аудіо-медитація</h1>
+    </div>
+
+    <div class="align-text-block gold reveal" style="margin-top: 40px;">
+      <h2 class="align-heading" style="margin-top:0;">Що це за послуга?</h2>
+      <p>Це послуга створення для вас індивідуальної аудіо-медитації під запит, або в разі рекомендації після діагностики.</p>
+
+      <h2 class="align-heading" style="margin-top: 40px;">В яких випадках створюється?</h2>
+      <p>Ви самі можете відчувати і бажати якусь ситуацію пропрацювати. А для цього буде доцільним прослуховування медитації.</p>
+      <p>Також, я можу запропонувати вам її створити, якщо ми з вами працюємо і я бачу, що в даному випадку це буде доцільно. Це не значить, що кожного разу, коли ми будемо з вами працювати, я буду пропонувати. Ні, просто іноді я дійсно бачу, що потрібно, яка саме потрібна, і мені одразу приходить медитація для людини, тому я її обов'язково в цьому випадку запропоную. <span class="eso-symbol">✧</span></p>
+    </div>
+
+    <div class="corner-border-box reveal" style="margin-top: 50px;">
+      <h3 style="color:var(--gold); font-family:'Cinzel',serif; margin-bottom: 25px; font-size:1.2rem; letter-spacing:0.05em; text-align: center;">ДЛЯ ЧОГО:</h3>
+      <p style="color:var(--gold-light); line-height: 1.7; margin-bottom: 15px;"><span class="eso-symbol">⟁</span> <strong>Закріплення практик:</strong> Ця послуга може бути для закріплення проведених практик. Іноді потрібно механічне закріплення.</p>
+      <p style="color:var(--gold-light); line-height: 1.7; margin-bottom: 15px;"><span class="eso-symbol">✺</span> <strong>Глибоке пропрацювання:</strong> Деякі ситуації мають не одну причину, а декілька, які сформувались через накопичення роками. І це такий симбіоз ситуацій та станів, який проявився уже на фізиці чи психіці в матеріальний світ. Тому потрібно прослухати декілька разів, для того щоб закрити нашарування. З кожним прослуховуванням закривається пласт.</p>
+      <p style="color:var(--gold-light); line-height: 1.7; margin-bottom: 15px;"><span class="eso-symbol">❂</span> <strong>Інтеграція стану:</strong> Іноді для закріплення певного стану, з яким ми знайомимось, але ще не можемо тримати автоматично. Щоб він плавно ввійшов у наше життя і залишився в ньому з легкістю, непомітністю, потрібно прослуховувати певний час.</p>
+      <p style="color:var(--gold-light); line-height: 1.7;"><span class="eso-symbol">✧</span> <strong>Особистий запит:</strong> Ну і також просто за вашим вподобанням. Якщо ви бачите ситуацію і не можете знайти медитацію по цій темі, або щоб вона була більш індивідуальна. Бо зазвичай створені медитації на просторі інтернету — це для всіх, і іноді ми потребуємо персональності.</p>
+    </div>
+
+    <div class="align-text-block gold reveal" style="margin-top: 50px;">
+      <p>Кожна медитація має свою енергію <span class="eso-symbol">✦</span>, і час, потрібний для її глибокого проживання, для кожного — свій. Бо ми всі різні, кожен досвід унікальний, як і той, хто слухає. Може бути 7, 10, 14, 21, 30 днів.</p>
+      <p>Це також залежить від того, чи одна чи декілька медитацій створюються.</p>
+      <p>Іноді може бути не одна медитація, а 2-3 — такі собі <strong>диптихи чи триптихи</strong>. Вони прослуховуються не всі разом, а одна деякий час, а після неї інша. <span class="eso-symbol">△</span></p>
+      <p>Тому що в деяких ситуаціях потрібно закріпити один стан, щоб мати змогу закріпити інший. <span class="eso-symbol">⟁</span></p>
+    </div>
+
+    <h2 class="align-heading reveal" style="margin-top: 60px;">Як проходить процес створення?</h2>
+    <div class="arrow-list reveal" style="margin-bottom: 40px;">
+      <div class="arrow-list-item">
+        <span class="eso-symbol">✧</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Ми з вами зідзвонюємось у відео-зв'язку.</div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">✧</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Обговорюємо ситуацію і побажання. Разом вирішуємо, яка потрібна тематика медитації, під який запит-ситуацію.</div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">✧</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Ви оплачуєте.</div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">✧</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Мені потрібно від 1 до 3 днів на створення 1 медитації і запис аудіо-версії. Якщо це диптих-триптих — то час збільшується.</div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">✧</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Після створення я вам надсилаю готову роботу з рекомендаціями щодо прослуховування. Це теж дуже індивідуально.</div>
+      </div>
+    </div>
+
+    <div class="support-note reveal">
+      <span class="eso-symbol" style="font-size: 2rem; display: block; margin-bottom: 15px;">⟡</span>
+      <div style="font-size: 1.3rem; margin-bottom: 10px; font-weight: 600; color: var(--gold-bright); font-family: 'Cinzel', serif;">Ціна 1 медитації — 1300 грн</div>
+      <div style="font-size: 1.05rem; margin-top:10px;">Диптих (2 шт) — 2000 грн</div>
+      <div style="font-size: 1.05rem; margin-top:5px;">Триптих (3 шт) — 2500 грн</div>
+    </div>
+
+    <div class="align-highlight-center reveal" style="font-size: 1.15rem; text-transform: none; letter-spacing: normal; line-height: 1.8;">
+      Тож, якщо ти відчуваєш, що настав час звернутись до себе…<br>
+      почути глибше…<br>
+      доторкнутись до того, що давно чекає на твою увагу…<br>
+      — я тут. <span class="eso-symbol">✺</span>
+      <br><br>
+      Індивідуальна медитація — це як лист, написаний спеціально для тебе. З теплом. З точністю. З глибиною. <span class="eso-symbol">✦</span>
+      <br><br>
+      Запрошую тебе у цей простір.<br>
+      Де звучить саме твоя історія.<br>
+      Твоє зцілення.<br>
+      Твоя трансформація.
+      <br><br>
+      <span style="font-family:'Cinzel', serif; color:var(--gold-bright); font-size:1.3rem;">І пам'ятай: Вибір створює...</span>
+    </div>
+
+    <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal">
+      <span class="eso-symbol">⚚</span> ПИШИ МЕНІ — І СТВОРИМО ЇЇ РАЗОМ
+    </a>
+  </div>
+  <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
+</div>
+
+<!-- ── СТОРІНКА: КАНАЛ БЕСІДА З ТІЛОМ ── -->
+<div id="body-conversation" class="page">
+  <div class="align-container">
+    <div class="align-hero-box reveal" style="padding-bottom: 30px;">
+      <h1 class="align-hero-title glint-text" style="margin-bottom: 0;">Канал<br>«Бесіда з тілом»</h1>
+    </div>
+
+    <div class="align-highlight-center reveal" style="font-size: 1.15rem; text-transform: none; letter-spacing: normal;">
+      Це телеграм-канал з моїми авторськими медитаціями — живим діалогом із тілом.<br>
+      Кожна з них — м’який шлях до зцілення, відчуття й гармонії <span class="eso-symbol">✧</span>
+    </div>
+
+    <h2 class="align-heading reveal" style="margin-top: 50px;">Особливість каналу</h2>
+    <div class="align-text-block gold reveal">
+      <p>Тут немає зайвих історій — лише суть.</p>
+      <p>Кожна медитація має коротке прев’ю та опис можливих психосоматичних причин, щоб ти могла зорієнтуватися, де варто заглянути глибше.</p>
+      <p>Але пам’ятай: ти — унікальна, і твоя історія теж.<br>
+      Тому ми завжди залишаємо простір для самопитання — звідки це саме у тебе.</p>
+      <p style="font-style: italic; color:var(--gold-bright); margin-top: 15px;">І в медитації-діалозі тіло дає свою відповідь <span class="eso-symbol">✺</span></p>
+    </div>
+
+    <h2 class="align-heading reveal" style="margin-top: 60px;">В чому твоя вигода від БЗТ?</h2>
+    <div class="arrow-list reveal" style="margin-bottom: 40px;">
+      <div class="arrow-list-item">
+        <span class="eso-symbol">⟁</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Це простір, де тіло, емоції й енергія знаходять зцілення.</div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">⟁</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Де зникають питання “за що?” і “чому?”.</div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">⟁</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Де з’являється твій особистий острів тиші й відновлення.</div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">⟁</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Відновлюється сон, апетит, дихання, сексуальність — життя знову тече.</div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">⟁</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Відпускає провина, сором, образи — і народжується місце для радості.</div>
+      </div>
+      <div class="arrow-list-item">
+        <span class="eso-symbol">⟁</span>
+        <div style="color:var(--gold-light); line-height: 1.6;">Здоров’я стає не метою, а природним станом твого буття. <span class="eso-symbol">✦</span></div>
+      </div>
+    </div>
+
+    <div class="corner-border-box reveal" style="margin-top: 60px;">
+      <h3 style="color:var(--gold); font-family:'Cinzel',serif; margin-bottom: 20px; font-size:1.2rem; text-align: center;">Яка структура моїх медитацій?</h3>
+      <p style="color:var(--gold-light); line-height: 1.6; text-align: center;">Вона особлива <span class="eso-symbol">✦</span> (так, я знаю, так кажуть усі про свої <span class="eso-symbol">✧</span>). Але справді — я створюю їх за певним принципом.</p>
+      
+      <p style="color:var(--gold-light); line-height: 1.6; text-align: center; margin-top: 20px;">Я веду тебе в глибину тіла:</p>
+      <p style="color:var(--gold-bright); font-style:italic; font-family:'Cinzel', serif; font-size: 1.1rem; text-align: center; margin: 10px 0;">проживання → запитання → проживання</p>
+      
+      <p style="color:var(--gold-light); line-height: 1.6; text-align: center; margin-top: 15px;">Так народжується діалог.<br>А в діалозі завжди з’являється істина — твоя. <span class="eso-symbol">❂</span></p>
+    </div>
+
+    <div class="align-text-block gold reveal" style="margin-top: 50px;">
+      <p><strong>За основу я взяла кілька інструментів:</strong><br>
+      внутрішню посмішку (система даосів м'яка, зцілююча), питання Access Consciousness (які підіймають енергії змін), іноді Ho’oponopono — гавайську техніку самопрощення, і, звісно, психосоматику.</p>
+      <p>Якщо ви знаєте хоч одну з цих систем - ви знаєте, що серед них немає тих, де я втручаюсь в ваші структури. Тільки ви і ваше тіло, ваша увага і ваша любов підіймають глибокі нашарування та створюють самозцілення. <span class="eso-symbol">△</span></p>
+      <p>А мій голос — це закадровий провідник, який підсвічує, де можна зазирнути в яку точку, і яке запитання собі поставити.</p>
+    </div>
+
+    <h2 class="align-heading reveal" style="margin-top: 60px;">Кажуть, що медитації вже не працюють?</h2>
+    <div class="align-text-block gold reveal">
+      <p>Ні, це не так. Медитації працювали, працюють і будуть працювати — бо це не мода, а шлях до себе.</p>
+      <p>Так, іноді лякають тим, що в медитаціях «вбудовують програмування» не своє, а чуже. Таке буває. Але не в моїх медитаціях.</p>
+      <p>Мої не програмують — вони розкривають. Вони піднімають шари, створюють запитання, і саме через це ти сама запускаєш процес зцілення. <span class="eso-symbol">✺</span></p>
+      <p>І пам’ятай — ти завжди відчуєш, де є істина, а де — чужий вплив. Ти — велика сутність, і ніхто не може вплинути на тебе без твоєї згоди. Якщо ти не дозволяєш — це просто не може проникнути у твої простори.</p>
+    </div>
+
+    <div class="support-note reveal" style="margin-top: 50px; font-size: 1.1rem; padding: 40px 30px;">
+      <p style="margin-bottom: 15px; font-style: normal; color: var(--gold-light); font-size: 0.95rem;">Щоб почуватися ще спокійніше та убезпечити себе від небажаних структур, перед кожною медитацією або взаємодією з людиною, майстром чи вчителем, проговорюй внутрішньо:</p>
+      <p style="color:var(--gold-bright); line-height: 1.7; text-align: center;">
+        <span class="eso-symbol" style="display:block; margin-bottom:10px;">✦</span>
+        “Все, що не є істинним для мене, все, що не є для мене на найвище благо, на найкраще — не буде мати жодного впливу на мої фізичні, енергетичні та ментальні структури.”
+        <span class="eso-symbol" style="display:block; margin-top:10px;">✦</span>
+      </p>
+    </div>
+
+    <h2 class="align-heading reveal" style="margin-top: 60px;">Медитації не працюють і треба йти в індивідуальну роботу?</h2>
+    <div class="align-text-block gold reveal">
+      <p>Так, бувають випадки, коли потрібна індивідуальна робота, а бувають, коли нам потрібне чисто шліфування однієї історії. Ви ж не будете, к приміру, 10 днів ходити щодня на енергетичні сесії, а якщо й будете — думаю, це буде трошки затратно для вашого бюджету.</p>
+      <p>Мої медитації не влаштовані так, що їх можна прослухати один раз і на цьому все. Вони створені для курсу прослуховувань: від 5 разів (якщо це профілактично) і 10-21 дня, якщо це серйозніше проявлення. <span class="eso-symbol">⧖</span></p>
+    </div>
+
+    <h2 class="align-heading reveal" style="margin-top: 40px;">Чому? Це ж довго?</h2>
+    <div class="align-text-block gold reveal">
+      <p>Довго ви ходите зі своїми болячками, роками накопичуєте емоції, стани, а потім роками ходите з фізичними проявами. В рідкісних випадках це можна змінити за один раз.</p>
+      <p>А при прослуховуванні, раз за разом, ми знімаємо нашарування, і майже кожного разу це різні шари. Іноді може бути один шар, який ми знімаємо 5 днів. <span class="eso-symbol">△</span></p>
+    </div>
+
+    <div class="align-highlight-center reveal" style="border-top: 1px dashed rgba(201,168,76,0.2); padding-top: 40px; margin-top: 50px;">
+      Твій короткий шлях до зцілення може початися вже сьогодні <span class="eso-symbol">✧</span>
+    </div>
+
+    <div class="support-note reveal">
+      <span class="eso-symbol" style="font-size: 2rem; display: block; margin-bottom: 15px;">⟡</span>
+      <div style="font-size: 1.3rem; margin-bottom: 10px; font-weight: 600; color: var(--gold-bright); font-family: 'Cinzel', serif;">250 грн / 1 міс</div>
+      <div style="font-size: 1.3rem; margin-bottom: 10px; font-weight: 600; color: var(--gold-bright); font-family: 'Cinzel', serif;">600 грн / 3 міс</div>
+      <div style="font-size: 1.3rem; font-weight: 600; color: var(--gold-bright); font-family: 'Cinzel', serif;">2000 грн / рік</div>
+    </div>
+
+    <div class="align-text-block gold reveal" style="text-align: center; margin-top: 40px;">
+      Відчуй себе цілою — і помітиш, що світ теж змінився. <span class="eso-symbol">❂</span>
+    </div>
+
+    <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal" style="margin-top: 30px;">
+      <span class="eso-symbol">⚚</span> НАТИСНИ ТУТ І НАПИШИ МЕНІ В ОСОБИСТІ
+    </a>
+  </div>
+  <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
+</div>
+
 <!-- ── СТОРІНКА: ПІДКАЗКА ПРОСТОРУ ── -->
 <div id="oracle" class="page">
   <div class="align-container" style="text-align: center;">
@@ -1094,7 +1509,6 @@
     "Твоє оточення зараз — це пряме відображення твоїх внутрішніх дозволів.",
     "Що б ти зробила сьогодні, якби точно знала, що невдача неможлива? Зроби це.",
     "Віддай простору те, що не можеш змінити. І сфокусуйся на тому, на що впливаєш.",
-    "Радість — це не кінцева мета. Це єдиний нормальний спосіб подорожувати.",
     "Ти набагато більша за свої емоції. Спостерігай за ними, як за хмарами на небі.",
     "Те, від чого ти тікаєш, бігтиме за тобою, поки ти не зупинишся і не подивишся йому в очі.",
     "Не приймай рішень зі стану втоми. Завтра все виглядатиме зовсім інакше.",
@@ -1408,3 +1822,5 @@
 </script>
 </body>
 </html>
+
+
