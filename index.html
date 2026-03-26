@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DNK Sun Art · Надія</title>
 <link rel="icon" type="image/png" href="favicon.png?v=2">
-  
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXCK4MWG79"></script>
 <script>
@@ -475,6 +474,62 @@
   .arrow-list { display: flex; flex-direction: column; gap: 20px; margin-top: 20px; }
   .arrow-list-item { display: flex; gap: 15px; align-items: flex-start; }
 
+  /* ── ФОРМА ПРЕДЗАПИСУ ── */
+  .form-cta-block {
+    text-align: center;
+    margin-top: 25px;
+  }
+  .form-cta-text {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .form-btn {
+    margin-top: 0;
+    background: rgba(201,168,76,0.1);
+  }
+  
+  /* Блок для головної сторінки (на всю ширину) */
+  .home-full-form-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background: linear-gradient(to bottom, rgba(13,31,15,0.9), rgba(26,51,32,0.8));
+    border-top: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 60px;
+  }
+  .full-width-btn {
+    display: block;
+    width: 100%;
+    background: rgba(13,31,15,0.6);
+    border: 1px solid var(--gold);
+    color: var(--gold-bright);
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    padding: 20px;
+    text-decoration: none;
+    transition: all 0.3s;
+    animation: button-breathe 3.5s infinite ease-in-out;
+    cursor: pointer;
+  }
+  .full-width-btn:hover {
+    background: rgba(201,168,76,0.15);
+    transform: translateY(-3px);
+  }
+
   /* ── FOOTER ── */
   footer { text-align: center; padding: 40px; border-top: 1px solid rgba(201,168,76,0.1); font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.15em; }
   footer span { color: var(--gold); font-family: 'Cinzel', serif; }
@@ -678,7 +733,6 @@
         </a>
       </div>
 
-      <!-- ОНОВЛЕНА КАРТКА "БЕСІДА З ТІЛОМ" -->
       <div class="add-serv-card">
         <div class="add-serv-title"><span class="eso-symbol">✧</span> Канал «Бесіда_з_тілом»</div>
         <div class="add-serv-price" style="line-height: 1.6;">250 грн / 1 міс<br>600 грн / 3 міс<br>2000 грн / рік</div>
@@ -688,7 +742,6 @@
           <em style="color:var(--gold-light); display:block; margin-top:5px;">проживання → запитання → проживання</em></p>
           <p style="margin-top: 15px;">Так народжується діалог. А в діалозі завжди з'являється істина — твоя.</p>
         </div>
-        <!-- КНОПКА-ІКОНКА -->
         <a onclick="showPage('body-conversation', true)" class="card-more-btn" title="Відкрити деталі">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -712,6 +765,15 @@
       </div>
     </div>
   </div>
+
+  <!-- ФОРМА ПРЕДЗАПИСУ НА ГОЛОВНІЙ (ВНИЗУ) -->
+  <div class="home-full-form-section reveal">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <p class="form-cta-text" style="color: var(--gold-light); font-size: 1.1rem;">Заповніть анкету, щоб я могла швидше вивчити ваш запит і запропонувати вам зручний час для запису. Це зекономить час на уточнюючі питання та пришвидшить нашу зустріч</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc940lTSu8ICxxW_4urHupJfg_0gg6cgTiMTedDeeBqvxlIpA/viewform?usp=publish-editor" target="_blank" class="full-width-btn">Анкета предзапису на сеанс</a>
+    </div>
+  </div>
+
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
@@ -756,6 +818,11 @@
         <p style="color:var(--text);"><span style="font-family:'Cinzel', serif; font-size:1.2em; color:var(--gold-bright);">II.</span> Підняти вібрації по всьому організму.</p>
       </div>
     </div>
+    
+    <div class="form-cta-block reveal">
+      <p class="form-cta-text">Заповніть анкету, щоб я могла швидше вивчити ваш запит і запропонувати вам зручний час для запису. Це зекономить час на уточнюючі питання та пришвидшить нашу зустріч</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc940lTSu8ICxxW_4urHupJfg_0gg6cgTiMTedDeeBqvxlIpA/viewform?usp=publish-editor" target="_blank" class="align-cta form-btn">Анкета предзапису на сеанс</a>
+    </div>
   </div>
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
@@ -798,6 +865,11 @@
     <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal">
       <span class="eso-symbol">⚚</span> ЗАПРОШУЮ НА СЕАНС. ЗНАЙДЕМО КОРІНЬ ПРОБЛЕМИ.
     </a>
+
+    <div class="form-cta-block reveal">
+      <p class="form-cta-text">Заповніть анкету, щоб я могла швидше вивчити ваш запит і запропонувати вам зручний час для запису. Це зекономить час на уточнюючі питання та пришвидшить нашу зустріч</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc940lTSu8ICxxW_4urHupJfg_0gg6cgTiMTedDeeBqvxlIpA/viewform?usp=publish-editor" target="_blank" class="align-cta form-btn">Анкета предзапису на сеанс</a>
+    </div>
   </div>
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
@@ -853,7 +925,7 @@
     </div>
 
     <div class="align-text-block gold reveal">
-      <p>Починаючи з тілесних — хребта, а під хребет з часом підтягуються й інші структури тіла: структури кровоносної системи, лімфатичні потоки, м'язи розслабляються скидаючи напругу.<br>Вирівнюються також енергетичні поля та системи.</p>
+      <p>Починаючи з тілесних — хребта, а під хребет з часом подтягуються й інші структури тіла: структури кровоносної системи, лімфатичні потоки, м'язи розслабляються скидаючи напругу.<br>Вирівнюються також енергетичні поля та системи.</p>
       <p>Вирівнюється саме те, що вже готове і може бути вирівняне на теперішній момент.<br>Тобто, якщо щось має значення зараз або в майбутньому — воно не буде змінене. Змінюється тільки те, що вже віджило.</p>
     </div>
 
@@ -884,6 +956,11 @@
     <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal">
       <span class="eso-symbol">⟁</span> НАПИШИ МЕНІ В ОСОБИСТІ ПОВІДОМЛЕННЯ І ПІДБЕРЕМО ЗРУЧНИЙ ЧАС ДЛЯ СЕСІЇ.
     </a>
+
+    <div class="form-cta-block reveal">
+      <p class="form-cta-text">Заповніть анкету, щоб я могла швидше вивчити ваш запит і запропонувати вам зручний час для запису. Це зекономить час на уточнюючі питання та пришвидшить нашу зустріч</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc940lTSu8ICxxW_4urHupJfg_0gg6cgTiMTedDeeBqvxlIpA/viewform?usp=publish-editor" target="_blank" class="align-cta form-btn">Анкета предзапису на сеанс</a>
+    </div>
   </div>
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
@@ -984,6 +1061,11 @@
     <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal">
       <span class="eso-symbol">☥</span> НАПИШИ МЕНІ В ОСОБИСТІ, ОБЕРЕМО ЗРУЧНУ ДАТУ ТА ЧАС ДЛЯ СЕСІЇ.
     </a>
+
+    <div class="form-cta-block reveal">
+      <p class="form-cta-text">Заповніть анкету, щоб я могла швидше вивчити ваш запит і запропонувати вам зручний час для запису. Це зекономить час на уточнюючі питання та пришвидшить нашу зустріч</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc940lTSu8ICxxW_4urHupJfg_0gg6cgTiMTedDeeBqvxlIpA/viewform?usp=publish-editor" target="_blank" class="align-cta form-btn">Анкета предзапису на сеанс</a>
+    </div>
   </div>
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
@@ -1085,6 +1167,11 @@
     <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal">
       <span class="eso-symbol">❂</span> НАПИШИ МЕНІ В ОСОБИСТІ, ОБЕРЕМО ЗРУЧНУ ДАТУ ТА ЧАС ДЛЯ МЕДИТАЦІЇ.
     </a>
+
+    <div class="form-cta-block reveal">
+      <p class="form-cta-text">Заповніть анкету, щоб я могла швидше вивчити ваш запит і запропонувати вам зручний час для запису. Це зекономить час на уточнюючі питання та пришвидшить нашу зустріч</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc940lTSu8ICxxW_4urHupJfg_0gg6cgTiMTedDeeBqvxlIpA/viewform?usp=publish-editor" target="_blank" class="align-cta form-btn">Анкета предзапису на сеанс</a>
+    </div>
   </div>
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
@@ -1096,7 +1183,7 @@
       <h1 class="align-hero-title glint-text" style="margin-bottom: 0;">Часовий квадриптих</h1>
     </div>
 
-    <div class="align-highlight-center reveal" style="font-size: 1.15rem; text-transform: none; letter-spacing: normal;">
+    <div class="align-highlight-center reveal" style="font-size: 1.15rem; text-transform: none; letter-spacing: normal; line-height: 1.8;">
       Це не просто набір медитацій — це глибока практика, яка триватиме понад 2 місяці та трансформує ваші стосунки з часом. <span class="eso-symbol">✧</span>
     </div>
 
@@ -1153,6 +1240,11 @@
     <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal">
       <span class="eso-symbol">⚚</span> ДЛЯ ЗАМОВЛЕННЯ ПИШИ В ДІРЕКТ
     </a>
+
+    <div class="form-cta-block reveal">
+      <p class="form-cta-text">Заповніть анкету, щоб я могла швидше вивчити ваш запит і запропонувати вам зручний час для запису. Це зекономить час на уточнюючі питання та пришвидшить нашу зустріч</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc940lTSu8ICxxW_4urHupJfg_0gg6cgTiMTedDeeBqvxlIpA/viewform?usp=publish-editor" target="_blank" class="align-cta form-btn">Анкета предзапису на сеанс</a>
+    </div>
   </div>
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
@@ -1238,6 +1330,11 @@
     <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal">
       <span class="eso-symbol">⚚</span> НАПИШИ МЕНІ У ДІРЕКТ, РОЗКАЖИ СВІЙ ЗАПИТ І Я ПІДКАЖУ ВАРІАНТ ДЛЯ ТЕБЕ.
     </a>
+
+    <div class="form-cta-block reveal">
+      <p class="form-cta-text">Заповніть анкету, щоб я могла швидше вивчити ваш запит і запропонувати вам зручний час для запису. Це зекономить час на уточнюючі питання та пришвидшить нашу зустріч</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc940lTSu8ICxxW_4urHupJfg_0gg6cgTiMTedDeeBqvxlIpA/viewform?usp=publish-editor" target="_blank" class="align-cta form-btn">Анкета предзапису на сеанс</a>
+    </div>
   </div>
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
@@ -1323,6 +1420,11 @@
     <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal">
       <span class="eso-symbol">⚚</span> ПИШИ МЕНІ — І СТВОРИМО ЇЇ РАЗОМ
     </a>
+
+    <div class="form-cta-block reveal">
+      <p class="form-cta-text">Заповніть анкету, щоб я могла швидше вивчити ваш запит і запропонувати вам зручний час для запису. Це зекономить час на уточнюючі питання та пришвидшить нашу зустріч</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc940lTSu8ICxxW_4urHupJfg_0gg6cgTiMTedDeeBqvxlIpA/viewform?usp=publish-editor" target="_blank" class="align-cta form-btn">Анкета предзапису на сеанс</a>
+    </div>
   </div>
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
@@ -1334,7 +1436,7 @@
       <h1 class="align-hero-title glint-text" style="margin-bottom: 0;">Канал<br>«Бесіда з тілом»</h1>
     </div>
 
-    <div class="align-highlight-center reveal" style="font-size: 1.15rem; text-transform: none; letter-spacing: normal;">
+    <div class="align-highlight-center reveal" style="font-size: 1.15rem; text-transform: none; letter-spacing: normal; line-height: 1.8;">
       Це телеграм-канал з моїми авторськими медитаціями — живим діалогом із тілом.<br>
       Кожна з них — м’який шлях до зцілення, відчуття й гармонії <span class="eso-symbol">✧</span>
     </div>
@@ -1440,6 +1542,11 @@
     <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal" style="margin-top: 30px;">
       <span class="eso-symbol">⚚</span> НАТИСНИ ТУТ І НАПИШИ МЕНІ В ОСОБИСТІ
     </a>
+
+    <div class="form-cta-block reveal">
+      <p class="form-cta-text">Заповніть анкету, щоб я могла швидше вивчити ваш запит і запропонувати вам зручний час для запису. Це зекономить час на уточнюючі питання та пришвидшить нашу зустріч</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc940lTSu8ICxxW_4urHupJfg_0gg6cgTiMTedDeeBqvxlIpA/viewform?usp=publish-editor" target="_blank" class="align-cta form-btn">Анкета предзапису на сеанс</a>
+    </div>
   </div>
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
@@ -1527,16 +1634,11 @@
     var btn = document.querySelector('.oracle-btn');
     var resultBox = document.getElementById('oracle-result');
 
-    // Якщо вже крутиться, блокуємо повторне натискання
     if (btn.classList.contains('spinning')) return;
 
-    // Ховаємо старий результат
     resultBox.style.display = 'none';
-
-    // Запускаємо анімацію "думання/пошуку відповіді"
     btn.classList.add('spinning');
 
-    // Чекаємо 2 секунди і видаємо результат
     setTimeout(function() {
       btn.classList.remove('spinning');
       var randomIndex = Math.floor(Math.random() * oracleMessages.length);
@@ -1593,13 +1695,10 @@
 
   function toggleDropdown(btn) {
     if (!btn) return;
-
     var parent = btn.parentElement;
     if (!parent) return;
-
     var menu = parent.querySelector('.dropdown-content');
     if (!menu) return;
-
     var isOpen = parent.classList.contains('open');
 
     closeAllDropdowns();
@@ -1620,7 +1719,6 @@
 
   function showPage(pageId, addToHistory, isPopState) {
     if (!pageId) pageId = 'home';
-
     var targetPage = document.getElementById(pageId);
     if (!targetPage) pageId = 'home';
 
@@ -1692,7 +1790,6 @@
   document.addEventListener("DOMContentLoaded", function() {
     var startPage = window.location.hash ? window.location.hash.replace('#', '') : 'home';
     if (!document.getElementById(startPage)) startPage = 'home';
-
     showPage(startPage, false);
 
     if (startPage === 'home') {
@@ -1706,7 +1803,6 @@
   // ── SCROLL REVEAL (Плавне проявлення) ──
   document.addEventListener("DOMContentLoaded", function() {
     var revealElements = document.querySelectorAll('.reveal');
-    
     if ('IntersectionObserver' in window) {
       var revealObserver = new IntersectionObserver(function(entries, observer) {
         for(var i = 0; i < entries.length; i++) {
@@ -1720,7 +1816,6 @@
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"
       });
-
       for(var j = 0; j < revealElements.length; j++) {
         revealObserver.observe(revealElements[j]);
       }
@@ -1739,25 +1834,11 @@
     var w, h;
     var p = [];
     var m = {x: -1000, y: -1000};
-    
-    document.addEventListener('mousemove', function(e) { 
-      m.x = e.clientX; 
-      m.y = e.clientY; 
-    });
-    
-    document.addEventListener('mouseleave', function() { 
-      m.x = -1000; 
-      m.y = -1000; 
-    });
-    
-    function r(){
-      w = c.width = window.innerWidth;
-      h = c.height = window.innerHeight;
-    }
-    
+    document.addEventListener('mousemove', function(e) { m.x = e.clientX; m.y = e.clientY; });
+    document.addEventListener('mouseleave', function() { m.x = -1000; m.y = -1000; });
+    function r(){ w = c.width = window.innerWidth; h = c.height = window.innerHeight; }
     window.addEventListener('resize', r);
     r();
-    
     function P() {
       this.x = Math.random() * w;
       this.y = Math.random() * h;
@@ -1765,54 +1846,29 @@
       this.vy = (Math.random() - 0.5) * 0.7;
       this.R = Math.random() * 2 + 0.5;
     }
-    
     P.prototype.u = function() {
-      this.x += this.vx;
-      this.y += this.vy;
+      this.x += this.vx; this.y += this.vy;
       if(this.x < 0 || this.x > w) this.vx *= -1;
       if(this.y < 0 || this.y > h) this.vy *= -1;
-      
-      var dx = m.x - this.x;
-      var dy = m.y - this.y;
+      var dx = m.x - this.x; var dy = m.y - this.y;
       var d = Math.sqrt(dx * dx + dy * dy);
-          
-      if(d < 120) {
-        this.x -= dx * 0.03;
-        this.y -= dy * 0.03;
-      }
+      if(d < 120) { this.x -= dx * 0.03; this.y -= dy * 0.03; }
     };
-    
     P.prototype.d = function() {
-      x.beginPath();
-      x.arc(this.x, this.y, this.R, 0, Math.PI * 2);
-      x.fillStyle = 'rgba(201,168,76,0.7)';
-      x.fill();
+      x.beginPath(); x.arc(this.x, this.y, this.R, 0, Math.PI * 2);
+      x.fillStyle = 'rgba(201,168,76,0.7)'; x.fill();
     };
-    
-    for(var i = 0; i < 80; i++) {
-      p.push(new P());
-    }
-    
+    for(var i = 0; i < 80; i++) { p.push(new P()); }
     function a() {
       x.clearRect(0, 0, w, h);
-      for(var k = 0; k < p.length; k++) {
-        p[k].u();
-        p[k].d();
-      }
-      
+      for(var k = 0; k < p.length; k++) { p[k].u(); p[k].d(); }
       for(var i = 0; i < p.length; i++) {
         for(var j = i + 1; j < p.length; j++) {
-          var dx = p[i].x - p[j].x;
-          var dy = p[i].y - p[j].y;
+          var dx = p[i].x - p[j].x; var dy = p[i].y - p[j].y;
           var d = Math.sqrt(dx * dx + dy * dy);
-              
           if(d < 100) {
-            x.beginPath();
-            x.strokeStyle = 'rgba(201,168,76,' + (0.3 - d / 333) + ')';
-            x.lineWidth = 0.8;
-            x.moveTo(p[i].x, p[i].y);
-            x.lineTo(p[j].x, p[j].y);
-            x.stroke();
+            x.beginPath(); x.strokeStyle = 'rgba(201,168,76,' + (0.3 - d / 333) + ')';
+            x.lineWidth = 0.8; x.moveTo(p[i].x, p[i].y); x.lineTo(p[j].x, p[j].y); x.stroke();
           }
         }
       }
@@ -1823,5 +1879,4 @@
 </script>
 </body>
 </html>
-
 
