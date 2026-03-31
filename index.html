@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DNK Sun Art · Надія</title>
 <link rel="icon" type="image/png" href="favicon.png?v=2">
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXCK4MWG79"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -576,11 +575,9 @@
 </head>
 <body>
 
-<!-- ── ГЛОБАЛЬНИЙ ФОН І КАНВАС ── -->
 <div class="bg-radial"></div>
 <canvas id="energy-canvas"></canvas>
 
-<!-- ── АУДІО ФОН (Тибетська чаша) ── -->
 <audio id="ambient-audio" loop preload="none">
   <source src="ambient.mp3" type="audio/mpeg">
 </audio>
@@ -619,11 +616,11 @@
       </div>
     </li>
 
+    <li><a onclick="showPage('research', true)" id="nav-research">Дослідження</a></li>
     <li><a onclick="showPage('oracle', true)" id="nav-oracle" style="color: var(--gold-bright);">Підказка Простору <span class="eso-symbol" style="font-size: 0.9em;">✦</span></a></li>
   </ul>
 </nav>
 
-<!-- ── СТОРІНКА: ГОЛОВНА ── -->
 <div id="home" class="page active">
   <div id="home-hero">
     <div class="home-container">
@@ -766,7 +763,6 @@
     </div>
   </div>
 
-  <!-- ФОРМА ПРЕДЗАПИСУ НА ГОЛОВНІЙ (ВНИЗУ) -->
   <div class="home-full-form-section reveal">
     <div style="max-width: 900px; margin: 0 auto;">
       <p class="form-cta-text" style="color: var(--gold-light); font-size: 1.1rem;">Заповніть анкету, щоб я могла швидше вивчити ваш запит і запропонувати вам зручний час для запису. Це зекономить час на уточнюючі питання та пришвидшить нашу зустріч</p>
@@ -777,7 +773,6 @@
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
-<!-- ── СТОРІНКА: ЕНЕРГІЯ, ТІЛО ТА ХВОРОБИ ── -->
 <div id="energy-body" class="page">
   <div class="align-container">
     <div class="align-hero-box reveal" style="padding-bottom: 30px;">
@@ -827,7 +822,6 @@
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
-<!-- ── СТОРІНКА: ЯК ХВОРОБИ З МЕНТАЛЬНОГО СТАЮТЬ ФІЗИЧНІ ── -->
 <div id="mental-to-physical" class="page">
   <div class="align-container">
     <div class="align-hero-box reveal" style="padding-bottom: 30px;">
@@ -874,7 +868,6 @@
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
-<!-- ── СТОРІНКА: ВИРІВНЮВАННЯ ── -->
 <div id="alignment" class="page">
   <div class="align-container">
     <div class="align-hero-box reveal">
@@ -965,7 +958,6 @@
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
-<!-- ── СТОРІНКА: ТІЛЕСНЕ ВІДНОВЛЕННЯ ── -->
 <div id="body-restoration" class="page">
   <div class="align-container">
     <div class="align-hero-box reveal">
@@ -1070,7 +1062,6 @@
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
-<!-- ── СТОРІНКА: МЕДИТАЦІЯ ── -->
 <div id="meditation" class="page">
   <div class="align-container">
     <div class="align-hero-box reveal">
@@ -1176,7 +1167,6 @@
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
-<!-- ── СТОРІНКА: ЧАСОВИЙ КВАДРИПТИХ ── -->
 <div id="quadriptych" class="page">
   <div class="align-container">
     <div class="align-hero-box reveal" style="padding-bottom: 30px;">
@@ -1249,7 +1239,6 @@
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
-<!-- ── СТОРІНКА: ЧАКРАЛЬНЕ/ЕНЕРГЕТИЧНЕ ОЧИЩЕННЯ ── -->
 <div id="chakra-cleansing" class="page">
   <div class="align-container">
     <div class="align-hero-box reveal" style="padding-bottom: 30px;">
@@ -1339,7 +1328,6 @@
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
-<!-- ── СТОРІНКА: ІНДИВІДУАЛЬНА АУДІО-МЕДИТАЦІЯ ── -->
 <div id="individual-meditation" class="page">
   <div class="align-container">
     <div class="align-hero-box reveal" style="padding-bottom: 30px;">
@@ -1429,7 +1417,6 @@
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
-<!-- ── СТОРІНКА: КАНАЛ БЕСІДА З ТІЛОМ ── -->
 <div id="body-conversation" class="page">
   <div class="align-container">
     <div class="align-hero-box reveal" style="padding-bottom: 30px;">
@@ -1551,7 +1538,64 @@
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
-<!-- ── СТОРІНКА: ПІДКАЗКА ПРОСТОРУ ── -->
+<div id="research" class="page">
+  <div class="align-container">
+    <div class="align-hero-box reveal" style="padding-bottom: 30px;">
+      <h1 class="align-hero-title glint-text" style="margin-bottom: 0;">Дослідження</h1>
+    </div>
+
+    <div class="add-services-grid reveal" style="margin-top: 40px;">
+      
+      <div class="add-serv-card">
+        <div class="add-serv-title"><span class="eso-symbol">🌿</span> Ваш стан та потреби</div>
+        <div class="add-serv-desc">
+          <p>Досліджую ваш стан, щоб давати саме ті інструменти, які необхідні. Ваші відповіді — це паливо для мого натхнення.</p>
+          <p style="margin-top: 15px; font-style:italic; color:var(--gold-light);"><span class="eso-symbol" style="font-size:0.9em;">🎁</span> Подарунок за участь: ексклюзивна медитація.</p>
+        </div>
+        <a onclick="showPage('research-details-1', true)" class="card-more-btn" title="Відкрити деталі">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      </div>
+  </div>
+  <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
+</div>
+
+<div id="research-details-1" class="page">
+  <div class="align-container">
+    <div class="corner-border-box reveal" style="margin-top: 20px;">
+      
+      <div class="align-text-block gold" style="text-align: center; margin-bottom: 40px;">
+        <p style="font-size: 1.15rem; margin-bottom: 20px; color: var(--gold-bright);">Я досліджую ваш стан, щоб давати саме ті інструменти, які вам зараз необхідні. <span class="eso-symbol">🌿</span></p>
+        
+        <p style="margin-bottom: 15px;">Я ще не навчилася читати думки, але точно знаю: кожна ваша відповідь — це «паливо» для мого натхнення.</p>
+        
+        <p style="margin-bottom: 15px;">Прошу вашої допомоги: заповніть цю анкету. Ваші слова стануть ключем до того, якими будуть мої наступні продукти, ефіри та практики. Давайте створювати ваш результат разом.</p>
+        
+        <p style="font-style: italic; color:var(--gold-light); margin-top: 35px; margin-bottom: 20px; padding: 15px; border-top: 1px dashed rgba(201,168,76,0.3); border-bottom: 1px dashed rgba(201,168,76,0.3);">
+          А на знак моєї вдячності я подарую вам особливу медитацію «Я цінність. Я знаю. Я можу». Це ексклюзивна практика, доступна лише підписникам каналу «Бесіда з тілом».
+        </p>
+        
+        <p style="font-size: 1.05rem; margin-top: 20px;">Ваші відповіді — це наш крок до створення чогось справді цінного разом.</p>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="https://forms.gle/uirUYu1Kr7JVdMLv8" target="_blank" class="align-cta" style="margin-top: 0; display: inline-flex;">
+          Анкета для знайомства + <span class="eso-symbol" style="margin-left: 8px; font-size: 1.2em;">🎁</span>
+        </a>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;" class="reveal">
+      <a onclick="showPage('research', true)" style="color: var(--text-muted); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 0.9rem; letter-spacing: 0.05em; transition: color 0.3s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--text-muted)'">← Повернутися до списку досліджень</a>
+    </div>
+  </div>
+  <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
+</div>
+
 <div id="oracle" class="page">
   <div class="align-container" style="text-align: center;">
     <div class="align-hero-box reveal" style="padding-bottom: 30px;">
@@ -1568,14 +1612,12 @@
       </div>
 
       <div id="oracle-result" class="oracle-result-box">
-        <!-- Сюди буде падати текст з JavaScript -->
-      </div>
+        </div>
     </div>
   </div>
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
-<!-- ── СКРИПТ: АДАПТОВАНО ДЛЯ БУДЬ-ЯКИХ ТЕЛЕФОНІВ (ES5) ── -->
 <script>
   // ── ЛОГІКА ПІДКАЗОК ПРОСТОРУ (50 ШТУК) ──
   var oracleMessages = [
@@ -1879,4 +1921,3 @@
 </script>
 </body>
 </html>
-
