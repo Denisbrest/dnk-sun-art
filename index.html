@@ -610,6 +610,16 @@
       </div>
     </li>
 
+    <!-- НОВЕ МЕНЮ: МЕДИТАЦІЙНІ ПРОЄКТИ -->
+    <li class="dropdown">
+      <button type="button" class="dropbtn" id="nav-dropdown-meditations-btn" onclick="toggleDropdown(this)">Медитаційні проєкти ▾</button>
+      <div class="dropdown-content">
+        <a onclick="showPage('quadriptych', true)" id="nav-quadriptych"><span class="eso-symbol">⧖</span> Часовий квадриптих</a>
+        <a onclick="showPage('body-conversation', true)" id="nav-body-conversation"><span class="eso-symbol">✧</span> Канал «Бесіда_з_тілом»</a>
+        <a onclick="showPage('individual-meditation', true)" id="nav-individual-meditation"><span class="eso-symbol">✺</span> Індивідуальна медитація</a>
+      </div>
+    </li>
+
     <li class="dropdown">
       <button type="button" class="dropbtn" id="nav-dropdown-journal-btn" onclick="toggleDropdown(this)">Журнал DNK Sun Art ▾</button>
       <div class="dropdown-content">
@@ -1692,6 +1702,7 @@
   <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
 </div>
 
+<!-- НОВИЙ РОЗДІЛ: ЖУРНАЛ О СНАХ -->
 <div id="journal-dreams" class="page">
   <div class="align-container">
     <div class="align-hero-box reveal">
@@ -1700,6 +1711,7 @@
         <span class="eso-symbol" style="font-size:0.8em;">☾</span> #1 О снах <span class="eso-symbol" style="font-size:0.8em;">☾</span>
       </div>
       <div class="align-hero-img-wrap">
+        <!-- Місце для фото обкладинки журналу -->
         <img src="journal-cover-1.jpg" alt="Обкладинка журналу О снах">
       </div>
     </div>
@@ -1753,6 +1765,7 @@
     </a>
 
     <div class="align-hero-img-wrap reveal" style="margin-top: 50px;">
+      <!-- Місце для фото сторінок з журналу -->
       <img src="journal-preview-1.jpg" alt="Сторінки журналу О снах">
     </div>
 
@@ -1936,6 +1949,12 @@
     if (pageId === 'alignment' || pageId === 'body-restoration' || pageId === 'meditation' || pageId === 'sonarium') {
       var dropBtn = document.getElementById('nav-dropdown-btn');
       if (dropBtn) dropBtn.classList.add('active');
+    }
+
+    /* Активація меню "Медитаційні проєкти" */
+    if (pageId === 'quadriptych' || pageId === 'body-conversation' || pageId === 'individual-meditation') {
+      var medBtn = document.getElementById('nav-dropdown-meditations-btn');
+      if (medBtn) medBtn.classList.add('active');
     }
 
     /* Активація меню "Журнал DNK Sun Art" */
