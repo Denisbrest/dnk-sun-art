@@ -350,6 +350,45 @@
   .about-text { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; line-height: 1.8; color: var(--text); text-align: center; max-width: 800px; margin: 0 auto 60px; }
   .about-text em { color: var(--gold-light); font-style: italic; }
 
+  /* ── MILITARY PROMO BOX ── */
+  .military-promo-box {
+    background: linear-gradient(135deg, rgba(201,168,76,0.15) 0%, rgba(201,168,76,0.4) 50%, rgba(201,168,76,0.15) 100%);
+    border: 2px solid var(--gold-bright);
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    margin: 40px auto 20px;
+    width: calc(100% - 40px);
+    max-width: 700px;
+    box-shadow: 0 0 30px rgba(201,168,76,0.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+  }
+  .military-promo-box::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+    animation: shine-sweep 4s infinite linear;
+    pointer-events: none;
+  }
+  @keyframes shine-sweep {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+  }
+  .promo-title-small {
+    font-family: 'Cinzel', serif; font-size: clamp(0.9rem, 2.5vw, 1.05rem); color: var(--gold-pale); margin-bottom: 8px; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .promo-discount-main {
+    font-family: 'Cinzel', serif; font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 700; color: var(--gold-bright); margin-bottom: 10px; text-shadow: 0 4px 15px rgba(201,168,76,0.6);
+  }
+  .promo-note {
+    font-family: 'Raleway', sans-serif; font-size: 0.85rem; color: var(--text); opacity: 0.9; font-style: italic;
+  }
+
   /* ── HOME: Main Services Buttons ── */
   .main-services-list { display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 0 auto 80px; }
   .main-serv-btn {
@@ -651,14 +690,12 @@
           ЦІЛИТЕЛЬ ЕНЕРГЕТИЧНИХ ПОЛІВ
         </div>
         
-        <div class="home-quote reveal">
-          <span class="eso-symbol">✺</span> Я не заспокоюю — я вмикаю <span class="eso-symbol">✺</span><br>
-          Твою силу й сміливість заявити себе світу
-        </div>
-        
-        <div class="home-desc-new reveal">
-          <span class="eso-symbol">⟁</span> Працюю з тілом та енергією,<br>
-          щоб ти проявилась там, де давно хочеш
+        <div class="home-quote reveal" style="margin-bottom: 50px; line-height: 1.8;">
+          <div style="font-family: 'Cinzel', serif; font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--gold-bright); font-weight: 600; margin-bottom: 25px; letter-spacing: 0.05em; line-height: 1.6;">
+            Енергія <span class="eso-symbol" style="font-size: 0.7em; margin: 0 6px;">✦</span> Тіло <span class="eso-symbol" style="font-size: 0.7em; margin: 0 6px;">✦</span> Підсвідомість <span class="eso-symbol" style="font-size: 0.7em; margin: 0 6px;">✦</span> Дія <span class="eso-symbol" style="font-size: 0.7em; margin: 0 6px;">✦</span> Сон
+          </div>
+          <span class="eso-symbol" style="font-size: 1.1em; margin-right: 10px;">❂</span> Цілісний підхід до зміни стану<br>
+          <span class="eso-symbol" style="font-size: 1.1em; margin-right: 10px;">✧</span> Від спокою в голові — до свободи в діях
         </div>
 
         <div class="home-social-new reveal">
@@ -720,21 +757,6 @@
     <div class="add-services-grid reveal">
       
       <div class="add-serv-card">
-        <div class="add-serv-title"><span class="eso-symbol">❂</span> Чакральне/Енергетичне очищення</div>
-        <div class="add-serv-price">2200 грн</div>
-        <div class="add-serv-desc">
-          <p><strong>Енергетичне очищення:</strong> Це робота з усією енергетичною системою: з полями, меридіанами, торсіонними й магнітними потоками, каналами, через які циркулює енергія.</p>
-          <p style="margin-top: 15px;"><strong>Чакральне очищення:</strong> Робота з енергетичними центрами тіла, де накопичується й розподіляється прана — життєва сила.</p>
-          <p style="margin-top: 15px; font-style:italic; color:var(--gold-light);">Ми працюємо саме з тим, що потрібно тобі зараз. Іноді з однією чакрою, іноді — з усіма.</p>
-        </div>
-        <a onclick="showPage('chakra-cleansing', true)" class="card-more-btn" title="Відкрити деталі">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-      
-      <div class="add-serv-card">
         <div class="add-serv-title"><span class="eso-symbol">⧖</span> Часовий квадриптих</div>
         <div class="add-serv-price">2200 грн</div>
         <div class="add-serv-desc">
@@ -784,6 +806,13 @@
         </a>
       </div>
     </div>
+  </div>
+
+  <!-- МІСЦЕ ДЛЯ ПЕРЕНЕСЕНОГО БЛОКУ АКЦІЇ -->
+  <div class="military-promo-box reveal">
+    <div class="promo-title-small"><span class="eso-symbol">✦</span> Безстрокова акція для дружин військових <span class="eso-symbol">✦</span></div>
+    <div class="promo-discount-main">70% ЗНИЖКА НА ВСІ ПОСЛУГИ</div>
+    <div class="promo-note">(окрім "Духовного Вирівнювання" — там вже діє система донейшн)</div>
   </div>
 
   <div class="home-full-form-section reveal">
@@ -895,7 +924,7 @@
   <div class="align-container">
     <div class="align-hero-box reveal">
       <h1 class="align-hero-title glint-text">Духовне Енергетичне<br>Вирівнювання</h1>
-      <div class="price-tag">3800 грн</div>
+      <div class="price-tag" style="font-size: clamp(1.2rem, 3vw, 1.4rem); line-height: 1.4; text-transform: uppercase;">Оплата по серцю (донейшн)<br><span style="font-size: clamp(1.5rem, 4vw, 1.8rem); color: var(--gold-bright);">від 500 грн</span></div>
       <div class="align-hero-img-wrap">
         <img src="spine.jpg" alt="Духовне Енергетичне Вирівнювання">
       </div>
@@ -910,10 +939,6 @@
       <p>Це потужний і глибокий енергетичний процес, який запускає внутрішні процеси в тілі та повертає його у природну рівновагу.</p>
       <p>Вирівнюються тонкі енергетичні поля, гармонізуються всі системи тіла, а потоки енергії налагоджуються й починають текти рівномірно та збалансовано.</p>
       <p>У цьому стані з'являється внутрішня опора, спокій і ясність.</p>
-    </div>
-
-    <div class="support-note reveal">
-      <span class="eso-symbol">✦</span> У вартість входить підтримка протягом місяця: ви можете ставити питання, ділитись відчуттями, отримувати рекомендації, щоб закріпити результат і прожити зміни м'яко та усвідомлено.
     </div>
 
     <div class="align-highlight-center reveal">
@@ -986,6 +1011,7 @@
     <div class="align-hero-box reveal">
       <h1 class="align-hero-title glint-text">Сесія Тілесного<br>Відновлення</h1>
       <div class="price-tag">3800 грн</div>
+      <div style="font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 1.1rem; margin-top: -15px; margin-bottom: 30px; letter-spacing: 0.1em; text-transform: uppercase;">Тривалість: 2-3 години</div>
       <div class="align-hero-img-wrap">
         <img src="body.jpg" alt="Сесія Тілесного Відновлення">
       </div>
@@ -1090,11 +1116,12 @@
     <div class="align-hero-box reveal">
       <h1 class="align-hero-title glint-text">Многомірна<br>Керована Медитація</h1>
       <div class="price-tag">2800 грн</div>
+      <div style="font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 1.1rem; margin-top: -15px; margin-bottom: 30px; letter-spacing: 0.1em; text-transform: uppercase;">Тривалість: 2 години</div>
       <div class="align-hero-img-wrap">
         <img src="meditation.jpg" alt="Многомірна Керована Медитація">
       </div>
       <div class="align-hero-subtitle" style="font-size: 1.05rem; text-align: left; font-style:normal; line-height:1.7; margin-top: 25px;">
-        це енергопрактика, в якій ви лягаєте і я голосом веду вас у вашу пам'ять, в вашу глибину підсвідомості. Це глибока робота зі свідомістю, підсвідомістю та енергетичними рівнями, де формуються Ваші внутрішні заборони, сценарії і обмеження на прояв себе у світі.
+        Це глибока робота зі свідомістю, підсвідомістю та енергетичними рівнями, де формуються внутрішні заборони, сценарії і обмеження.
       </div>
     </div>
 
@@ -1147,7 +1174,7 @@
     <div class="arrow-list reveal">
       <div class="arrow-list-item">
         <span class="eso-symbol">❂</span>
-        <div style="color:var(--gold-light); line-height: 1.6;">Уходить паралізуючий страх, з'являється природне бажання ділитися знаннями.</div>
+        <div style="color:var(--gold-light); line-height: 1.6;">Уходить паралізуючий страх, з'являється природ бажання ділитися знаннями.</div>
       </div>
       <div class="arrow-list-item">
         <span class="eso-symbol">⟁</span>
@@ -1192,6 +1219,7 @@
     <div class="align-hero-box reveal">
       <h1 class="align-hero-title glint-text">Сонаріум</h1>
       <div class="price-tag">2800 грн</div>
+      <div style="font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 1.1rem; margin-top: -15px; margin-bottom: 30px; letter-spacing: 0.1em; text-transform: uppercase;">Тривалість: 2-3 години</div>
       <div class="align-hero-img-wrap">
         <img src="sonarium.jpg" alt="Сонаріум">
       </div>
@@ -1313,95 +1341,6 @@
 
     <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal">
       <span class="eso-symbol">⚚</span> ДЛЯ ЗАМОВЛЕННЯ ПИШИ В ДІРЕКТ
-    </a>
-
-    <div class="form-cta-block reveal">
-      <p class="form-cta-text">Заповніть анкету, щоб я могла швидше вивчити ваш запит і запропонувати вам зручний час для запису. Це зекономить час на уточнюючі питання та пришвидшить нашу зустріч</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc940lTSu8ICxxW_4urHupJfg_0gg6cgTiMTedDeeBqvxlIpA/viewform?usp=publish-editor" target="_blank" class="align-cta form-btn">Анкета предзапису на сеанс</a>
-    </div>
-  </div>
-  <footer><span>DNK Sun Art</span> · Надія · Майстер духовних практик · 2024</footer>
-</div>
-
-<div id="chakra-cleansing" class="page">
-  <div class="align-container">
-    <div class="align-hero-box reveal" style="padding-bottom: 30px;">
-      <h1 class="align-hero-title glint-text" style="margin-bottom: 0;">Чакральне / Енергетичне<br>очищення</h1>
-    </div>
-
-    <h2 class="align-heading reveal" style="margin-top: 50px;"><span class="eso-symbol">✺</span> Чакральне очищення</h2>
-    <div class="align-text-block gold reveal">
-      <p>Це робота з енергетичними центрами тіла.</p>
-      <p>Чакри — це точки перетину енергетичних каналів уздовж хребта, де накопичується й розподіляється прана — життєва сила.</p>
-      <p>Кожна чакра впливає на певну сферу життя: безпеку, емоції, любов, самовираження, бачення, інтуїцію, зв’язок із вищим.</p>
-      <p>Коли вони відкриті — енергія тече вільно, життя розквітає. Коли заблоковані — з’являються хвороби, емоційні застої, втрата натхнення.</p>
-      <p>Ми працюємо саме з тим, що потрібно тобі зараз: іноді з однією чакрою, іноді — з усіма. Це визначаємо на короткій консультації перед сесією <span class="eso-symbol">✧</span></p>
-      <p style="font-style: italic; color:var(--gold-bright); margin-top: 25px;">Твоя система завжди підкаже, де потрібне світло <span class="eso-symbol">✦</span></p>
-    </div>
-
-    <h2 class="align-heading reveal" style="margin-top: 60px;"><span class="eso-symbol">✺</span> Енергетичне очищення</h2>
-    <div class="align-text-block gold reveal">
-      <p>Це робота з усією твоєю енергетичною системою: з полями, меридіанами, торсіонними й магнітними потоками, каналами, через які циркулює енергія.</p>
-      <p>Ми очищаємо й відновлюємо природний рух енергії, знімаємо спотворення, розблоковуємо потоки — щоб тіло, розум і простір діяли злагоджено.</p>
-      <p style="font-style: italic; color:var(--gold-bright); margin-top: 25px;">Це глибоке оновлення всієї твоєї енергетики <span class="eso-symbol">❂</span></p>
-    </div>
-
-    <div class="corner-border-box reveal" style="margin-top: 60px;">
-      <p style="color:var(--gold-bright); font-size: 1.15rem; line-height: 1.6; text-align: center; margin-bottom: 20px;">
-        <span class="eso-symbol">✺</span> Обидва види очищення — про повернення цілісності.
-      </p>
-      <p style="color:var(--gold-light); line-height: 1.6; margin-bottom: 15px;">Просто енергетичне охоплює всю систему людини, а чакральне — роботу з її основними центрами.</p>
-      <p style="color:var(--gold-light); line-height: 1.6; margin-bottom: 15px;">Ми не робимо їх одночасно, бо це глибока робота. Кожне очищення триває до півтори години і торкається різних шарів енергії.</p>
-      <p style="color:var(--gold-light); line-height: 1.6; font-style: italic;">
-        <span class="eso-symbol">✦</span> Розділення допомагає краще інтегрувати зміни в життя. І навіть коли ми працюємо з одним — це впливає на всю систему. Адже всі рівні людини взаємопов’язані <span class="eso-symbol">✧</span>
-      </p>
-    </div>
-
-    <h2 class="align-heading reveal" style="margin-top: 70px;">Що ти отримаєш після очищення:</h2>
-    <div class="arrow-list reveal" style="margin-bottom: 50px;">
-      <div class="arrow-list-item">
-        <span class="eso-symbol">⟁</span>
-        <div style="color:var(--gold-light); line-height: 1.6;">Вільний потік енергії <span class="eso-symbol">✧</span></div>
-      </div>
-      <div class="arrow-list-item">
-        <span class="eso-symbol">⟁</span>
-        <div style="color:var(--gold-light); line-height: 1.6;">Легкість у діях і рішеннях <span class="eso-symbol">✦</span></div>
-      </div>
-      <div class="arrow-list-item">
-        <span class="eso-symbol">⟁</span>
-        <div style="color:var(--gold-light); line-height: 1.6;">Баланс і стабільність у житті <span class="eso-symbol">△</span></div>
-      </div>
-      <div class="arrow-list-item">
-        <span class="eso-symbol">⟁</span>
-        <div style="color:var(--gold-light); line-height: 1.6;">Натхнення та силу прояву <span class="eso-symbol">❂</span></div>
-      </div>
-      <div class="arrow-list-item">
-        <span class="eso-symbol">⟁</span>
-        <div style="color:var(--gold-light); line-height: 1.6;">Чистий простір для фінансів, стосунків і творчості <span class="eso-symbol">✺</span></div>
-      </div>
-      <div class="arrow-list-item">
-        <span class="eso-symbol">⟁</span>
-        <div style="color:var(--gold-light); line-height: 1.6;">Зтирання фізичних і енергетичних блоків, хвороб <span class="eso-symbol">☥</span></div>
-      </div>
-    </div>
-
-    <div class="align-highlight-center reveal" style="border-top: 1px dashed rgba(201,168,76,0.2); border-bottom: 1px dashed rgba(201,168,76,0.2); padding: 40px 0;">
-      Очищення — це те, що повертає швидкість прояву.<br>
-      Коли простір усередині стає чистим — ти починаєш діяти.<br>
-      Не через силу, а через потік <span class="eso-symbol">✦</span>
-    </div>
-
-    <div class="align-text-block gold reveal" style="margin-top: 50px;">
-      <p>І знаєш, що найцікавіше?<br>
-      Після цієї практики ти навчишся самостійно очищати свої чакри й поля. Без сторонньої допомоги.</p>
-      
-      <p style="margin-top: 25px;"><span class="eso-symbol">✺</span> Після практики все навколо починає відгукуватися: люди, події, можливості.</p>
-      
-      <p style="font-style: italic; color:var(--gold-bright); margin-top: 15px;">Бо світ завжди відповідає на чистоту твоєї енергії <span class="eso-symbol">△</span></p>
-    </div>
-
-    <a href="https://t.me/Nadezhda_DNKsunArt" target="_blank" class="align-cta reveal">
-      <span class="eso-symbol">⚚</span> НАПИШИ МЕНІ У ДІРЕКТ, РОЗКАЖИ СВІЙ ЗАПИТ І Я ПІДКАЖУ ВАРІАНТ ДЛЯ ТЕБЕ.
     </a>
 
     <div class="form-cta-block reveal">
@@ -2090,6 +2029,8 @@
 </script>
 </body>
 </html>
+
+
 
 
 ```
